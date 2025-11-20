@@ -123,7 +123,7 @@ export default function VoiceInterface({
                 <div
                   className={`max-w-[80%] rounded-lg px-4 py-2 ${
                     message.role === 'user'
-                      ? 'bg-brand-primary text-white'
+                      ? 'bg-brand-primary text-gray-900 font-medium'
                       : message.role === 'system'
                       ? 'bg-gray-200 text-gray-700 text-sm italic'
                       : 'bg-white text-gray-900 shadow-sm border border-gray-200'

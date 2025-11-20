@@ -49,7 +49,7 @@ export default function ChatInterface({
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-brand-primary flex items-center justify-center text-white font-semibold">
+          <div className="w-10 h-10 rounded-full bg-brand-secondary flex items-center justify-center text-white font-semibold">
             C
           </div>
           <div>
@@ -101,7 +101,7 @@ export default function ChatInterface({
               <div
                 className={`max-w-[80%] rounded-lg px-4 py-2 ${
                   message.role === 'user'
-                    ? 'bg-brand-primary text-white'
+                    ? 'bg-brand-primary text-gray-900 font-medium'
                     : message.role === 'system'
                     ? 'bg-gray-200 text-gray-700 text-sm italic'
                     : 'bg-white text-gray-900 shadow-sm border border-gray-200'
@@ -133,7 +133,7 @@ export default function ChatInterface({
           <button
             type="submit"
             disabled={!inputValue.trim() || !isActive}
-            className="px-6 py-2 bg-brand-primary text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            className="px-6 py-2 bg-brand-primary text-gray-900 font-semibold rounded-lg hover:brightness-90 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all flex items-center gap-2"
           >
             <span>Send</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -5,26 +5,29 @@ import { useState } from 'react';
 interface FeedbackModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (rating: number) => void;
+  onSubmit: (rating: number, feedback: string) => void;
 }
 
 export default function FeedbackModal({ isOpen, onClose, onSubmit }: FeedbackModalProps) {
   const [rating, setRating] = useState(0);
   const [hoveredRating, setHoveredRating] = useState(0);
+  const [feedbackText, setFeedbackText] = useState('');
 
   if (!isOpen) return null;
 
   const handleSubmit = () => {
     if (rating > 0) {
-      onSubmit(rating);
+      onSubmit(rating, feedbackText);
       setRating(0);
       setHoveredRating(0);
+      setFeedbackText('');
     }
   };
 
   const handleClose = () => {
     setRating(0);
     setHoveredRating(0);
+    setFeedbackText('');
     onClose();
   };
 
@@ -91,6 +94,20 @@ export default function FeedbackModal({ isOpen, onClose, onSubmit }: FeedbackMod
           </div>
         )}
 
+        <div className="mb-4">
+          <label htmlFor="feedback-text" className="block text-sm font-medium text-gray-700 mb-2">
+            Additional Feedback (Optional)
+          </label>
+          <textarea
+            id="feedback-text"
+            value={feedbackText}
+            onChange={(e) => setFeedbackText(e.target.value)}
+            placeholder="Tell us more about your experience..."
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary resize-none"
+            rows={4}
+          />
+        </div>
+
         <div className="flex gap-3">
           <button
             onClick={handleClose}
@@ -101,10 +118,10 @@ export default function FeedbackModal({ isOpen, onClose, onSubmit }: FeedbackMod
           <button
             onClick={handleSubmit}
             disabled={rating === 0}
-            className={`flex-1 px-4 py-2 rounded-lg text-white transition-colors ${
+            className={`flex-1 px-4 py-2 rounded-lg font-semibold transition-all ${
               rating > 0
-                ? 'bg-brand-primary hover:bg-blue-700'
-                : 'bg-gray-300 cursor-not-allowed'
+                ? 'bg-brand-primary text-gray-900 hover:brightness-90'
+                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             }`}
           >
             Submit

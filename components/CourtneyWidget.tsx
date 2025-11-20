@@ -234,10 +234,10 @@ export default function CourtneyWidget() {
     console.log('[Widget] Mute toggled:', newMutedState);
   };
 
-  const handleFeedbackSubmit = (rating: number) => {
-    console.log('[Widget] Feedback submitted:', rating);
+  const handleFeedbackSubmit = (rating: number, feedback: string) => {
+    console.log('[Widget] Feedback submitted:', { rating, feedback });
     setShowFeedback(false);
-    // Here you could send the rating to your backend
+    // Here you could send the rating and feedback to your backend
   };
 
   const handleFeedbackClose = () => {
@@ -251,7 +251,7 @@ export default function CourtneyWidget() {
       {widgetState === 'closed' && (
         <button
           onClick={() => setWidgetState('form')}
-          className="fixed bottom-6 right-6 w-16 h-16 bg-brand-primary hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 z-50"
+          className="fixed bottom-6 right-6 w-16 h-16 bg-brand-primary hover:brightness-90 text-gray-900 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 z-50"
           aria-label="Open support chat"
         >
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -267,7 +267,7 @@ export default function CourtneyWidget() {
           {widgetState === 'form' && (
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-4 bg-brand-primary text-white">
+              <div className="flex items-center justify-between p-4 bg-brand-secondary text-white">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-semibold">
                     C
@@ -356,7 +356,7 @@ export default function CourtneyWidget() {
               <div className="p-4 border-t border-gray-200 space-y-3">
                 <button
                   onClick={handleStartChat}
-                  className="w-full px-4 py-3 bg-brand-primary hover:bg-blue-700 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-4 py-3 bg-brand-primary hover:brightness-90 text-gray-900 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 font-semibold"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -365,7 +365,7 @@ export default function CourtneyWidget() {
                 </button>
                 <button
                   onClick={handleStartCall}
-                  className="w-full px-4 py-3 bg-brand-secondary hover:bg-orange-600 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+                  className="w-full px-4 py-3 bg-brand-secondary hover:brightness-110 text-white rounded-lg font-medium transition-colors flex items-center justify-center gap-2 font-semibold"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>

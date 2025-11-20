@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Courtsapp brand colors - sports/court themed
+        // Courtsapp brand colors - exact official palette
         brand: {
-          primary: "#2563EB", // Blue (court/sports theme)
-          secondary: "#F97316", // Orange (basketball/sports)
-          accent: "#10B981", // Green (success states)
-          dark: "#1E293B", // Dark slate
-          light: "#F1F5F9", // Light gray
+          primary: "#e1f700", // Bright yellow-lime (main brand color - rgb(225, 247, 0))
+          secondary: "#0a4728", // Dark forest green (headers, backgrounds - rgb(10, 71, 40))
+          accent: "#10B981", // Emerald green (success states, highlights)
+          dark: "#1F2937", // Dark gray (text, borders)
+          light: "#FFFFFF", // Pure white (backgrounds)
         },
       },
     },
